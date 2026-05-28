@@ -77,11 +77,56 @@
     margin-top:30px;color:var(--brown-deep);
     opacity:0;animation:rise .9s .5s forwards;
   }
-  .byline .inst{color:var(--ink);opacity:.6;}
+  .byline a{color:var(--brown-deep);border-bottom:1px dotted rgba(78,54,41,.4);}
+  .byline a:hover{color:var(--accent);border-bottom-color:var(--accent);text-decoration:none;}
+  .byline .inst{color:var(--ink);opacity:.6;display:block;margin-top:4px;}
   .paw-trail{
     position:absolute;top:0;right:-40px;height:100%;width:300px;
     pointer-events:none;opacity:.5;
   }
+
+  /* ---------- CONTACT BAR (top, after hero) ---------- */
+  .contact-bar{
+    background:var(--brown);color:var(--cream);
+    border-bottom:1px solid var(--brown-deep);
+  }
+  .contact-bar .wrap{
+    padding-top:26px;padding-bottom:26px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  }
+  .cb-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+  .cb-tag{
+    font-family:'Spline Sans Mono',monospace;font-size:11px;
+    letter-spacing:.3em;text-transform:uppercase;color:var(--accent-soft);
+  }
+  .cb-msg{
+    font-family:'Newsreader',serif;font-style:italic;font-size:19px;
+    color:var(--cream);
+  }
+  .cb-msg strong{font-style:normal;font-weight:500;color:#fff;}
+  .cb-cta{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:'Spline Sans Mono',monospace;font-size:14px;letter-spacing:.05em;
+    background:var(--accent);color:#fff;
+    padding:12px 22px;border-radius:3px;
+    transition:transform .15s ease, background .2s ease;
+  }
+  .cb-cta:hover{background:var(--accent-soft);color:var(--brown-deep);text-decoration:none;transform:translateY(-2px);}
+
+  /* ---------- NEWS STRIP ---------- */
+  .news{
+    background:var(--paper);border-bottom:1px solid var(--line);
+  }
+  .news .wrap{
+    padding:18px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  }
+  .news-pill{
+    font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.25em;
+    text-transform:uppercase;background:var(--accent);color:#fff;
+    padding:5px 11px;border-radius:2px;
+  }
+  .news-text{font-family:'Newsreader',serif;font-size:17px;color:var(--brown-deep);}
+  .news-text em{color:var(--accent);font-style:normal;font-weight:500;}
 
   /* ---------- SECTION SCAFFOLD ---------- */
   section{padding:64px 0;border-bottom:1px solid var(--line);}
@@ -136,6 +181,27 @@
     padding:6px 0 6px 30px;margin:14px 0;max-width:860px;
   }
 
+  /* ---------- VIDEOS ---------- */
+  .video-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:38px;
+  }
+  @media(max-width:760px){.video-grid{grid-template-columns:1fr;}}
+  .video-card{
+    background:var(--paper);border:1px solid var(--line);border-radius:3px;
+    overflow:hidden;display:flex;flex-direction:column;
+  }
+  .video-card video{width:100%;height:auto;display:block;background:#1a1108;aspect-ratio:16/9;object-fit:cover;}
+  .video-meta{padding:18px 22px 22px;}
+  .video-meta .vlabel{
+    font-family:'Spline Sans Mono',monospace;font-size:11px;letter-spacing:.25em;
+    text-transform:uppercase;color:var(--accent);
+  }
+  .video-meta h3{
+    font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:var(--brown);
+    margin:6px 0 6px;
+  }
+  .video-meta p{font-size:15px;line-height:1.5;color:var(--brown-deep);}
+
   /* ---------- RESULTS TABLE ---------- */
   .table-wrap{margin-top:30px;overflow-x:auto;}
   table{border-collapse:collapse;width:100%;font-family:'Spline Sans Mono',monospace;font-size:15px;}
@@ -147,17 +213,11 @@
   .row-learned td:first-child{color:var(--accent);font-weight:600;}
   .best{background:rgba(196,90,43,.12);border-radius:2px;font-weight:600;color:var(--brown);}
 
-  /* ---------- PROPOSAL + CONTACT GRID ---------- */
-  .grid2{display:grid;grid-template-columns:1.3fr .9fr;gap:40px;align-items:start;}
-  @media(max-width:760px){.grid2{grid-template-columns:1fr;}}
+  /* ---------- PROPOSAL CARD ---------- */
   .card{
     background:var(--paper);border:1px solid var(--line);
-    border-radius:4px;padding:32px;
+    border-radius:4px;padding:32px;max-width:720px;
   }
-  .card.dark{background:var(--brown);color:var(--cream);border-color:var(--brown);}
-  .card.dark h3,.card.dark .sec-tag{color:var(--cream);}
-  .card.dark .sec-tag::before{background:var(--accent-soft);}
-  .card.dark a{color:var(--accent-soft);}
   .card h3{font-family:'Fraunces',serif;font-weight:600;font-size:26px;color:var(--brown);margin-bottom:10px;}
   .btn{
     display:inline-flex;align-items:center;gap:10px;
@@ -167,13 +227,11 @@
     transition:transform .15s ease,background .2s ease;cursor:pointer;
   }
   .btn:hover{background:var(--brown);text-decoration:none;transform:translateY(-2px);}
-  .contact-line{font-family:'Spline Sans Mono',monospace;font-size:15px;line-height:2;}
-  .contact-line span{opacity:.6;}
 
   /* ---------- FOOTER ---------- */
   footer{padding:50px 0 70px;text-align:center;}
-  footer .mark{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--brown);}
-  footer .meta{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--brown-deep);opacity:.6;margin-top:10px;}
+  footer .mark{font-family:'Fraunces',serif;font-style:italic;font-size:22px;color:var(--brown);max-width:780px;margin:0 auto;line-height:1.35;}
+  footer .meta{font-family:'Spline Sans Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--brown-deep);opacity:.6;margin-top:14px;}
 
   @keyframes rise{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
@@ -192,15 +250,41 @@
     </g>
   </svg>
   <div class="wrap">
-    <div class="eyebrow">Brown University · Human to Robot Lab · ICRA Workshop</div>
+    <div class="eyebrow">Brown University · Human to Robot Lab</div>
     <h1 class="title"><em>FetchHound</em></h1>
     <p class="subtitle">From human–canine to human–robot object search: learning a robot's social attention policy from the way a dog reads its human.</p>
     <div class="byline">
-      Ivy He · Jiajie (Jayson) Feng · Jiayu (Alec) Zhu · Madeline Pelgrim · Daphna Buchsbaum · Stefanie Tellex<br>
+      <a href="mailto:ivy_he@brown.edu">Ivy He</a> ·
+      <a href="mailto:jiajie_feng@brown.edu">Jiajie (Jayson) Feng</a> ·
+      <a href="mailto:jiayu_zhu@brown.edu">Jiayu (Alec) Zhu</a> ·
+      <a href="mailto:madeline_pelgrim@brown.edu">Madeline Pelgrim</a> ·
+      <a href="mailto:daphna_buchsbaum@brown.edu">Daphna Buchsbaum</a> ·
+      <a href="mailto:stefie10@cs.brown.edu">Stefanie Tellex</a>
       <span class="inst">Brown University, Providence, RI, USA</span>
     </div>
   </div>
 </header>
+
+<!-- CONTACT — top of page, per Ivy's note -->
+<div class="contact-bar">
+  <div class="wrap">
+    <div class="cb-left">
+      <div>
+        <div class="cb-tag">Get in touch</div>
+        <div class="cb-msg">Interested in <strong>collaborating</strong>? Reach out — we'd love to hear from you.</div>
+      </div>
+    </div>
+    <a class="cb-cta" href="mailto:ivy_he@brown.edu?subject=FetchHound%20collaboration">✉ &nbsp;ivy_he@brown.edu</a>
+  </div>
+</div>
+
+<!-- RECENT NEWS -->
+<div class="news">
+  <div class="wrap">
+    <span class="news-pill">Recent News</span>
+    <span class="news-text">We are presenting our poster at <em>ICRA Learning-HRI workshop</em>.</span>
+  </div>
+</div>
 
 <section id="motivation">
   <div class="wrap reveal">
@@ -222,6 +306,32 @@
       <div class="loop-step"><div class="n">02</div><h3>Reconstruct</h3><p>3D pose & a gaze proxy from head-direction ray-casting.</p></div>
       <div class="loop-step"><div class="n">03</div><h3>Imitate</h3><p>Learn the attention policy by behavior cloning.</p></div>
       <div class="loop-step"><div class="n">04</div><h3>Transfer</h3><p>Roll out closed-loop on a Spot robot in simulation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="wrap reveal">
+    <div class="sec-tag">In Motion</div>
+    <h2>See the pipeline in action.</h2>
+    <p class="lead">From the lab where we collect human–dog collaborative search trials, to closed-loop rollouts of the learned policy on a Spot robot in simulation.</p>
+    <div class="video-grid">
+      <div class="video-card">
+        <video src="videos/data_collection.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <div class="video-meta">
+          <div class="vlabel">Data Collection</div>
+          <h3>Naturalistic human–dog search</h3>
+          <p>A handler instructs the dog to locate a treat hidden under one of several visually similar cups. Multi-camera capture feeds the 3D reconstruction pipeline.</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <video src="videos/rollout.mp4" autoplay muted loop playsinline preload="metadata"></video>
+        <div class="video-meta">
+          <div class="vlabel">Simulation Rollout</div>
+          <h3>Spot, executing the learned policy</h3>
+          <p>The yellow Spot robot acts under the learned social attention policy; the transparent dog is the recorded trajectory replayed for comparison.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -252,28 +362,20 @@
 
 <section id="proposal">
   <div class="wrap reveal">
-    <div class="grid2">
-      <div class="card">
-        <div class="sec-tag">Submitted Proposal</div>
-        <h3>Read the full workshop paper</h3>
-        <p style="font-size:17px;line-height:1.6;color:var(--brown-deep);">The complete proposal submitted to the ICRA workshop covers the problem formulation, the data-collection and 3D-reconstruction pipeline, the behavior-cloning policies, and the full results and discussion.</p>
-        <a class="btn" href="proposal/FetchHound.pdf" target="_blank" rel="noopener">↓ &nbsp;Download PDF</a>
-        <p style="font-size:13px;font-family:'Spline Sans Mono',monospace;margin-top:16px;opacity:.55;">FetchHound.pdf</p>
-      </div>
-      <div class="card dark">
-        <div class="sec-tag">Get in Touch</div>
-        <h3 style="color:var(--cream);">Contact</h3>
-        <p class="contact-line"><span>Lead &nbsp;</span><a href="mailto:ivy_he@brown.edu">ivy_he@brown.edu</a></p>
-        <p class="contact-line" style="margin-top:14px;color:var(--cream);opacity:.85;">Human to Robot Lab<br>Brown University<br>Providence, RI, USA</p>
-      </div>
+    <div class="card">
+      <div class="sec-tag">Paper</div>
+      <h3>Read the full write-up</h3>
+      <p style="font-size:17px;line-height:1.6;color:var(--brown-deep);">The complete paper covers the problem formulation, the data-collection and 3D-reconstruction pipeline, the behavior-cloning policies, and the full results and discussion.</p>
+      <a class="btn" href="proposal/FetchHound.pdf" target="_blank" rel="noopener">↓ &nbsp;Download PDF</a>
+      <p style="font-size:13px;font-family:'Spline Sans Mono',monospace;margin-top:16px;opacity:.55;">FetchHound.pdf</p>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="mark">FetchHound</div>
-    <div class="meta">Animal-Inspired Attention Alignment · Brown University</div>
+    <div class="mark">FetchHound: From Human-Canine to Human-Robot Object Search</div>
+    <div class="meta">Brown University · Human to Robot Lab</div>
   </div>
 </footer>
 
